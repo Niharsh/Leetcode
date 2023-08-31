@@ -5,14 +5,15 @@ public:
         int n=nums.size();
         for(int i=0;i<n;i++){
             mpp[nums[i]]++;
+            if(mpp[nums[i]] > (n/2)){return nums[i];}
         }
-        int m=0,r=0;
-        for(auto x:mpp){
-            if(x.second > m){
-                m=x.second;
-                r=x.first;
-            }
-        }
-        return r;
+        // int m=0,r=0;
+        // for(auto x:mpp){
+        //     if(x.second > m){
+        //         m=x.second;
+        //         r=x.first;
+        //     }
+        // }
+        return -1;
     }
 };
