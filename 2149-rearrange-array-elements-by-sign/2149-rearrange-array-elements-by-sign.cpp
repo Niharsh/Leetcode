@@ -2,20 +2,18 @@ class Solution {
 public:
     vector<int> rearrangeArray(vector<int>& nums) {
         int n=nums.size();
-        vector<int> narray;
-        vector<int> parray;
+        vector<int> result(n,0);
+        int pindex=0,nindex=1;
         for(int i=0;i<n;i++){
-            if(nums[i]<0){
-                narray.push_back(nums[i]);
+            if(nums[i]>0){
+                result[pindex]=nums[i];
+                pindex+=2;
             }
             else{
-                parray.push_back(nums[i]);
+                result[nindex]=nums[i];
+                nindex+=2;
             }
         }
-        for(int i=0;i<(n/2);i++){
-            nums[2*i]=parray[i];
-            nums[2*i+1]=narray[i];
-        }
-        return nums;
+        return result;
     }
 };
